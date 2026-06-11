@@ -12,14 +12,17 @@ public class ThirdPersonController : MonoBehaviour
 
     [Header("Speed")]
     [SerializeField] private float lookSpeed = 10f;
-    [SerializeField] private float moveSpeed = 3f;
+    [SerializeField] public float moveSpeed = 3f;
     [SerializeField] private float acceleration = 8f;
+
+    [SerializeField] public bool canMove = true;
 
 
     [Header("Grounded")]
     [SerializeField] private Transform groundCheckPoint;
     [SerializeField] private float groundCheckRadius = 0.2f;
     [SerializeField] private LayerMask groundLayer;
+    [SerializeField] public bool isGrounded = true;
 
     [Header("Jumping")]
     [SerializeField] private float jumpStrength = 7f;
@@ -28,7 +31,6 @@ public class ThirdPersonController : MonoBehaviour
 
     private Vector2 move;
     private Vector2 look;
-    private bool isGrounded = true;
     private bool canJump = true;
     private float yaw;
     private float pitch;
@@ -108,7 +110,7 @@ public class ThirdPersonController : MonoBehaviour
 
         Vector3 moveDir = (forward * move.y + right * move.x).normalized;
 
-        if(moveDir.sqrMagnitude > 0.01f)
+        if(moveDir.sqrMagnitude > 0.01f && canMove)
         {
             Quaternion targetRotation = Quaternion.LookRotation(moveDir);
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.fixedDeltaTime * 10f);
