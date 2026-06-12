@@ -20,6 +20,7 @@ public class BobAttacks : MonoBehaviour
     [Header("Combat Stats")]
     [SerializeField] public float MB1Dmg = 10f;
     [SerializeField] public float MB2Dmg = 30f;
+    [SerializeField] public float sprintSPD = 30f;
     [SerializeField] public float MB1CD = 1f;
     [SerializeField] public float MB2CD = 5f;
     [SerializeField] public float ShiftCD = 10f;
@@ -67,7 +68,7 @@ public class BobAttacks : MonoBehaviour
     {
         box.enabled = false;
         initialMS = controller.moveSpeed;
-        controller.moveSpeed = 20f;
+        controller.moveSpeed = sprintSPD;
         anim.SetTrigger(ShiftParamName);
         StartCoroutine(ShiftCoroutine());
     }
