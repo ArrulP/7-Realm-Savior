@@ -25,7 +25,7 @@ Take the hearts. Tear open the path to his world. End his reign.
 
 ## Status
 
-Early development. Core systems in progress.
+Mid Development, Core Systems completed, working on auxillary systems.
 
 ---
 
